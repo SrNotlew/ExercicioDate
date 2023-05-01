@@ -69,7 +69,7 @@ function getDayWeekText (param1){
   return dayWeekText
 }
 let dataCompleta = `${getDayWeekText(diaSemanaExtenso)}, ${zeroAEsquerda(dia)} de ${getMonthText(mes)} de ${ano} às ${zeroAEsquerda(horas)}:${zeroAEsquerda(minutos)}`
-// Update header text
+
 document.querySelector('#header').innerHTML = dataCompleta
 
 //==================================================================================
@@ -77,3 +77,18 @@ document.querySelector('#header').innerHTML = dataCompleta
 let dataCompletaMenor = Intl.DateTimeFormat('pt-BR', {dateStyle:'full', timeStyle:'short'}).format(data)
 console.log(dataCompletaMenor)
 document.querySelector('#header2').innerHTML = dataCompletaMenor
+
+//===================================================================================
+function getMonthTextArray (param1){
+  let getMonthTextArray = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio']
+  return getMonthTextArray[param1]
+}
+
+function getDayWeekTextArray (param1){
+  let getDayWeekTextArray = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado']
+  return getDayWeekTextArray[param1]
+}
+
+let dataCompleta2forma = `${getDayWeekTextArray(diaSemanaExtenso)}, ${zeroAEsquerda(dia)} de ${getMonthTextArray(mes)} de ${ano} às ${zeroAEsquerda(horas)}:${zeroAEsquerda(minutos)}`
+
+document.querySelector('#header3').innerHTML = dataCompleta2forma
